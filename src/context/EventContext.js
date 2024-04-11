@@ -6,7 +6,11 @@ export default function EventProvider({ children }) {
   const [events, setEvents] = useState([]);
   const [isAddingMode, setIsAddingMode] = useState(false);
   useEffect(() => {
-    getEvents().then((data) => setEvents(data));
+    async function fetchEvents() {
+      const data = await getEvents();
+      setEvents(data);
+    }
+    fetchEvents();
   }, []);
 
   function handleAdd() {
