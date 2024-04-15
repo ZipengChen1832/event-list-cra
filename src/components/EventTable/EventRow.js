@@ -31,7 +31,7 @@ export default function EventRow({ event }) {
 
   const { eventName, startDate, endDate } = event;
   return isEditingMode ? (
-    <tr className="event">
+    <tr className="event" data-testid="event-row">
       <td>
         <input
           name="eventName"
@@ -72,7 +72,7 @@ export default function EventRow({ event }) {
       </td>
     </tr>
   ) : (
-    <tr className="event">
+    <tr className="event" data-testid="event-row">
       <td className="event__name">{eventName}</td>
       <td className="event__start-date">{startDate}</td>
       <td className="event__end-date">{endDate}</td>
